@@ -54,23 +54,7 @@ interface AutocompleteGoogleMapsProps {
 const AutocompleteGoogleMaps: React.FC<AutocompleteGoogleMapsProps> = ({
   selectedCallback,
 }) => {
-  const [value, setValue] = useState<AutocompletePredictionOuter>({
-    placePrediction: {
-      placeId: "",
-      structuredFormat: {
-        mainText: {
-          matches: [],
-          text: "",
-        },
-        secondaryText: {
-          text: "",
-        },
-      },
-      text: {
-        text: "",
-      },
-    },
-  });
+  const [value, setValue] = useState<AutocompletePredictionOuter | null>(null);
   const [options, setOptions] = useState<AutocompletePredictionOuter[] | []>(
     []
   );
@@ -113,11 +97,9 @@ const AutocompleteGoogleMaps: React.FC<AutocompleteGoogleMapsProps> = ({
   );
 
   const handleSelectOption = (newVal: AutocompletePredictionOuter | null) => {
+    setValue(newVal);
     if (newVal) {
-      setValue(newVal);
-
       selectedCallback(newVal);
-
       // Reset session token. Token could be used on a call to Details API at this point
       sessionToken.current = uuidv4();
     }
