@@ -1,4 +1,4 @@
-# MUI Autocomplete component (New)
+# MUI Autocomplete component (using latest Google Maps API)
 
 MUI's docs provide an example Autocomplete component which uses the Google Maps Places API:
 
