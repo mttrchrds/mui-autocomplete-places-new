@@ -1,50 +1,23 @@
-# React + TypeScript + Vite
+# MUI Autocomplete component (New)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+MUI's docs provide an example Autocomplete component which uses the Google Maps Places API:
 
-Currently, two official plugins are available:
+https://mui.com/material-ui/react-autocomplete/#google-maps-place
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Unfortunately this example uses the legacy version of the Google Maps API.
 
-## Expanding the ESLint configuration
+This repo creates an updated version of this example component which utilises the latest API (https://developers.google.com/maps/documentation/javascript/place-autocomplete-overview).
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+A live demo of this repo can be found here: https://mui-autocomplete-places-new.onrender.com
 
-- Configure the top-level `parserOptions` property like this:
+## Install locally
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Firstly, clone this repo. Then run usual Vite commands i.e.:
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- `npm install`
+- `npm run dev`
+- `npm run build`
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Create a ".env" file at the root of your project. Add the following line with your own Google API key
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+`VITE_GOOGLE_API_KEY="XYZ"`
