@@ -4,9 +4,9 @@ MUI's docs provide an example Autocomplete component which uses the Google Maps 
 
 https://mui.com/material-ui/react-autocomplete/#google-maps-place
 
-Unfortunately this example uses the legacy version of the Google Maps API.
+Unfortunately this example uses the legacy version of the Google Maps API. Also, the "official" type definitions have not yet been updated to include the new API (https://www.npmjs.com/package/@types/google.maps).
 
-This repo creates an updated version of this example component which utilises the latest API (https://developers.google.com/maps/documentation/javascript/place-autocomplete-overview).
+This repo demos how to create an updated version of the MUI Autocomplete component which utilises the latest Places API (https://developers.google.com/maps/documentation/javascript/place-autocomplete-overview).
 
 A live demo of this repo can be found here: https://mui-autocomplete-places-new.onrender.com
 
