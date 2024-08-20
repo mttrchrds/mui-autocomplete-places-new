@@ -1,6 +1,9 @@
 import { useState, useMemo, useRef } from "react";
 import { debounce } from "@mui/material/utils";
 import { v4 as uuidv4 } from "uuid";
+import parse from "autosuggest-highlight/parse";
+
+import { AutocompletePredictionOuter, AutocompletePayload } from "./types";
 
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -8,44 +11,6 @@ import Autocomplete from "@mui/material/Autocomplete";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import parse from "autosuggest-highlight/parse";
-
-interface AutocompleteMatch {
-  startOffset?: number;
-  endOffset: number;
-}
-
-interface AutocompleteStructuredFormatMainText {
-  matches: AutocompleteMatch[];
-  text: string;
-}
-
-interface AutocompleteStructuredFormatSecondaryText {
-  text: string;
-}
-
-interface AutocompleteStructuredFormat {
-  mainText: AutocompleteStructuredFormatMainText;
-  secondaryText: AutocompleteStructuredFormatSecondaryText;
-}
-
-interface AutocompleteText {
-  text: string;
-}
-
-interface AutocompletePrediction {
-  placeId: string;
-  structuredFormat: AutocompleteStructuredFormat;
-  text: AutocompleteText;
-}
-
-export interface AutocompletePredictionOuter {
-  placePrediction: AutocompletePrediction;
-}
-
-interface AutocompletePayload {
-  suggestions: AutocompletePredictionOuter[];
-}
 
 interface AutocompleteGoogleMapsProps {
   selectedCallback: (payload: AutocompletePredictionOuter) => void;

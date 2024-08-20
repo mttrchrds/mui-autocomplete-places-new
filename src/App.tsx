@@ -1,7 +1,7 @@
 import "./App.css";
-import AutocompleteGoogleMaps, {
-  AutocompletePredictionOuter,
-} from "./AutocompleteGoogleMaps";
+import AutocompleteGoogleMaps from "./AutocompleteGoogleMaps";
+
+import { AutocompletePredictionOuter } from "./types";
 
 const App = () => {
   const handleGoogleMapsPlacesAutoCompleteCallback = (
