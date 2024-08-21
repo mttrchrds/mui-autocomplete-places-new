@@ -13,7 +13,10 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 
 interface AutocompleteGoogleMapsProps {
-  selectedCallback: (payload: AutocompletePredictionOuter) => void;
+  selectedCallback: (
+    payload: AutocompletePredictionOuter | null,
+    token: string
+  ) => void;
 }
 
 const AutocompleteGoogleMaps: React.FC<AutocompleteGoogleMapsProps> = ({
@@ -64,8 +67,8 @@ const AutocompleteGoogleMaps: React.FC<AutocompleteGoogleMapsProps> = ({
   const handleSelectOption = (newVal: AutocompletePredictionOuter | null) => {
     setValue(newVal);
     if (newVal) {
-      selectedCallback(newVal);
-      // Reset session token. Token could be used on a call to Details API at this point
+      selectedCallback(newVal, sessionToken.current);
+      // Reset session token
       sessionToken.current = uuidv4();
     }
   };
@@ -93,6 +96,12 @@ const AutocompleteGoogleMaps: React.FC<AutocompleteGoogleMapsProps> = ({
           setOptions(newOptions);
         }
       );
+    }
+    if (reason === "clear") {
+      // Send empty values to callback
+      selectedCallback(null, "");
+      // Reset session token
+      sessionToken.current = uuidv4();
     }
   };
 

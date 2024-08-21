@@ -2,7 +2,6 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
 }
 
 .page-content {
@@ -13,6 +12,12 @@
   justify-content: center;
 }
 
-.autocomplete-container {
-  width: 320px;
+pre {
+  font-size: 12px;
+  text-align: left;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  margin: 0;
+  padding: 18px;
+  background-color: lightgoldenrodyellow;
 }
